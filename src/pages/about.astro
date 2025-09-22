@@ -1,0 +1,149 @@
+---
+import Features from '~/components/widgets/Features.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'About Us',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="About Us"
+    image={{
+      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Web3WayAfrica Team',
+    }}
+  >
+    <Fragment slot="title">
+      Building Africa's <br />
+      <span class="text-accent dark:text-emerald-400"> Web3 Future</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      We are a team of passionate blockchain developers, smart contract engineers, and Web3 enthusiasts dedicated to bringing cutting-edge decentralized technologies to Africa. Our mission is to empower businesses and individuals across the continent with innovative blockchain solutions.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-emerald-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"></div>
+    </Fragment>
+  </Hero>
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    title="Our Core Values"
+    subtitle="We are driven by a set of core values that guide everything we do in the Web3 space."
+    items={[
+      {
+        title: 'Innovation',
+        description:
+          'We stay at the forefront of blockchain technology, constantly exploring new possibilities and implementing cutting-edge solutions.',
+        icon: 'tabler:bulb',
+      },
+      {
+        title: 'Security',
+        description:
+          'Security is our top priority. We implement best practices and conduct thorough audits to ensure your Web3 solutions are bulletproof.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Transparency',
+        description:
+          'We believe in open communication and transparent processes, keeping you informed throughout every step of your project.',
+        icon: 'tabler:eye',
+      },
+      {
+        title: 'Community',
+        description:
+          'We are committed to building a strong Web3 community in Africa, fostering collaboration and knowledge sharing.',
+        icon: 'tabler:users',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    tagline="Our Mission"
+    title="Empowering Africa Through Web3"
+    items={[
+      {
+        title: 'Democratizing Access',
+        description:
+          'We believe that everyone in Africa should have access to the benefits of Web3 technology, regardless of their technical background.',
+      },
+      {
+        title: 'Building Local Solutions',
+        description:
+          'We create Web3 solutions that address real African challenges, from financial inclusion to supply chain transparency.',
+      },
+      {
+        title: 'Fostering Innovation',
+        description:
+          'We support African entrepreneurs and businesses in adopting Web3 technologies to create innovative solutions.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Web3 Innovation in Africa',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Our Vision</h3>
+      To be the leading Web3 development company in Africa, driving the continent's digital transformation through innovative blockchain solutions.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-emerald-50 dark:from-slate-800 dark:to-slate-900"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent
+    tagline="Our Team"
+    title="Meet the Experts"
+    items={[
+      {
+        title: 'Blockchain Developers',
+        description:
+          'Our team includes experienced smart contract developers with expertise in Solidity, Rust, and other blockchain programming languages.',
+      },
+      {
+        title: 'Web3 Architects',
+        description:
+          'We have architects who design scalable and secure Web3 solutions tailored to your specific business needs.',
+      },
+      {
+        title: 'Security Specialists',
+        description:
+          'Our security experts ensure that every solution we build meets the highest security standards and industry best practices.',
+      },
+      {
+        title: 'Business Consultants',
+        description:
+          'We provide strategic guidance on how to integrate Web3 technologies into your existing business processes.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Web3WayAfrica Team',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Why Choose Us?</h3>
+      We combine deep technical expertise with a deep understanding of African markets to deliver Web3 solutions that truly make a difference.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gradient-to-r from-emerald-50 to-blue-50 dark:from-slate-900 dark:to-slate-800"></div>
+    </Fragment>
+  </Content>
+</Layout>

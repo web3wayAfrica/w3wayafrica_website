@@ -1,0 +1,75 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import Features from '~/components/widgets/Features.astro';
+
+const metadata = {
+  title: 'Get in Touch - Web3WayAfrica',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="Get in Touch"
+    title="Get in Touch"
+    subtitle="Expansion in Kisumu and beyond. Partner, sponsor, mentor our community."
+    image={{ src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80', alt: 'Web3WayAfrica Community' }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"></div>
+    </Fragment>
+  </Hero>
+
+  <ContactUs
+    id="form"
+    title="Drop us a message today!"
+    subtitle="We'd love to hear from you. Whether you want to partner with us, sponsor our events, or join our community, we're here to help."
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: 'Name',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email',
+      },
+    ]}
+    textarea={{
+      label: 'Message',
+    }}
+    disclaimer={{
+      label:
+        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+    }}
+    description="Our team typically responds within 24 business hours."
+  />
+
+  <!-- Features Widget ************** -->
+
+  <Features
+    title="Connect With Us"
+    subtitle="Multiple ways to get in touch with the Web3WayAfrica community"
+    items={[
+      {
+        title: 'Email',
+        description: 'web3wayafrica@gmail.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Twitter/X',
+        description: '@web3wayafrica',
+        icon: 'tabler:brand-x',
+      },
+      {
+        title: 'LinkedIn',
+        description: 'Web3Way Africa',
+        icon: 'tabler:brand-linkedin',
+      },
+    ]}
+  />
+</Layout>

@@ -1,0 +1,321 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Partners from '~/components/widgets/Partners.astro';
+import Events from '~/components/widgets/Events.astro';
+import PizzaParty from '~/components/widgets/PizzaParty.astro';
+import EthiopiaResidency from '~/components/widgets/EthiopiaResidency.astro';
+import Team from '~/components/widgets/Team.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import HomepageImage from '~/assets/images/Homepage.webp';
+import GlobalPizzaPartyVideo from '~/assets/images/Global_Pizza_Party_2025.mp4';
+
+
+const metadata = {
+  title: 'Web3WayAfrica — Empowering African Web3 Developers',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Join Our Community',
+        href: '#contact',
+        icon: 'tabler:users',
+      },
+      { text: 'Learn More', href: '#about' },
+    ]}
+    image={{ src: HomepageImage, alt: 'Web3WayAfrica Community' }}
+  >
+    <Fragment slot="title">
+      <span class="text-accent dark:text-emerald-400">Web3way Africa</span><br />
+      <span class="text-4xl md:text-5xl">Kisumu onChain:</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        Welcome to <span class="font-semibold text-primary">Web3way Africa</span>, a grassroots initiative empowering African developers in the blockchain space. We're building a vibrant Web3 future, starting in Kisumu.</span
+      >
+      <span class="block mb-1 sm:hidden font-bold text-primary">Web3WayAfrica: Grassroots Web3 Initiative.</span>
+      Empowering African developers through community, learning, and innovation in the blockchain space.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"></div>
+      <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
+    </Fragment>
+  </Hero>
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline="Our Vision"
+    title="Empowering African Web3"
+    subtitle="We are building a vibrant Web3 ecosystem in Africa, starting with Kisumu, and expanding across the continent."
+    items={[
+      {
+        title: 'Our Mission',
+        description:
+          'Empower African developers, foster innovation, and build a strong Web3 community across the continent.',
+        icon: 'tabler:flag',
+      },
+      {
+        title: 'Why Africa, Why Now?',
+        description:
+          'Untapped potential, tech adoption boom, and a young, tech-savvy population ready to embrace Web3 technologies.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'About Web3Way Africa',
+        description:
+          'Community-led, skill-building focused initiative that brings together developers, entrepreneurs, and blockchain enthusiasts.',
+        icon: 'tabler:users',
+      },
+    ]}
+  />
+
+  <!-- Partners Widget *************** -->
+
+  <Partners
+    title="Our Previous Partners"
+    subtitle="We work with leading organizations in the Web3 space to build a stronger ecosystem"
+    tagline="Partners"
+    items={[
+      {
+        name: 'Ethereum',
+        logo: 'src/assets/images/ethereum.webp',
+        href: 'https://ethereum.org'
+      },
+      {
+        name: 'Base East Africa',
+        logo: 'src/assets/images/base.jpeg',
+        href: 'https://base.org'
+      },
+      {
+        name: 'Pizza DAO',
+        logo: 'src/assets/images/pizza-dao.webp',
+        href: 'https://pizza-dao.com'
+      },
+      {
+        name: 'Stellar East Africa',
+        logo: 'src/assets/images/Stellar.webp',
+        href: 'https://stellar.org'
+      }
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    tagline="Why Choose Us"
+    title="Leading Web3 Innovation in Africa"
+    items={[
+      {
+        title: 'Local Expertise',
+        description:
+          'Deep understanding of African markets, regulations, and business needs for effective Web3 solutions.',
+      },
+      {
+        title: 'Cutting-edge Technology',
+        description:
+          'Latest blockchain technologies and frameworks to build secure, scalable, and efficient applications.',
+      },
+      {
+        title: 'End-to-end Support',
+        description:
+          'Complete project lifecycle support from ideation to deployment and ongoing maintenance.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Web3 Innovation in Africa',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building Africa's Web3 Future</h3>
+      Empowering businesses and individuals across Africa with innovative blockchain solutions
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-emerald-50 dark:from-slate-800 dark:to-slate-900"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Events Widget ***************** -->
+
+  <Events
+    title="Our Recent Activities"
+    subtitle="We've been laying the groundwork to empower local builders and spark fresh ideas, guided by our belief in Africa's rising tech momentum. From collaborative sessions to early experiments, everything we do stays rooted in community, learning, and innovation."
+    tagline="Events"
+    events={[
+      {
+        title: 'Base Batches Meetup',
+        description: 'Base Batch: Africa 001 - A comprehensive program bringing together developers and entrepreneurs to learn about Base blockchain technology.',
+        image: 'src/assets/images/Base-chain.jpeg',
+        date: '2025',
+        location: 'Kisumu, Kenya'
+      },
+      {
+        title: 'Stellar Kisumu Meetup',
+        description: 'A community gathering focused on Stellar blockchain technology, bringing together developers and enthusiasts to explore cross-border payments and financial inclusion solutions.',
+        image: 'src/assets/images/Stellar-chain.jpeg',
+        date: '2025',
+        location: 'Kisumu, Kenya'
+      },
+      {
+        title: 'Post Devcon Event',
+        description: 'Highlighted the key concepts at Devcon 2024 and shared insights with the local community about the latest developments in the Ethereum ecosystem.',
+        image: 'src/assets/images/Post-devcon.webp',
+        date: '2024',
+        location: 'Kisumu, Kenya'
+      }
+    ]}
+  />
+
+  <!-- Pizza Party Widget ************ -->
+
+  <PizzaParty
+    title="Global Pizza Party 2025"
+    subtitle="Held the first ever Pizza Party event in Kisumu"
+    description="Bringing together the local Web3 community for networking and collaboration in a fun, engaging environment. This groundbreaking event marked a new chapter in Kisumu's Web3 journey."
+    videoSrc={GlobalPizzaPartyVideo}
+    date="2025"
+    location="Kisumu, Kenya"
+  />
+
+  <!-- Ethiopia Residency Widget ***** -->
+
+  <EthiopiaResidency
+    title="ETHiopia Residency and Popup City"
+    subtitle="Cultural and Technical Exchange Program"
+    description="A groundbreaking cultural and technical exchange program bringing together Web3 developers from Ethiopia and Kenya for collaborative learning and innovation. This residency program fostered cross-border collaboration and knowledge sharing in the African Web3 ecosystem."
+    imageSrc="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+    date="2025"
+    location="Addis Ababa, Ethiopia"
+    highlights={[
+      'Cross-border collaboration between Ethiopia and Kenya',
+      'Technical knowledge exchange and skill sharing',
+      'Cultural immersion and community building',
+      'Innovation workshops and hackathons',
+      'Long-term partnership development'
+    ]}
+  />
+
+  <!-- Team Widget ******************* -->
+
+  <Team
+    title="Meet Our Team"
+    subtitle="The passionate individuals driving Web3WayAfrica forward"
+    tagline="Team"
+    members={[
+      {
+        name: 'Allan Kamau',
+        role: 'Community Lead',
+        image: 'src/assets/images/Allan-imara.webp',
+        bio: 'Passionate about building inclusive Web3 communities'
+      },
+      {
+        name: 'Ijay',
+        role: 'Business Development Lead',
+        image: 'src/assets/images/Ijay-lisk.jpeg',
+        bio: 'Driving strategic partnerships and growth'
+      },
+      {
+        name: 'Cheryl Owala',
+        role: 'Technical Lead',
+        image: 'src/assets/images/cheryl-polkadot.webp',
+        bio: 'Leading technical innovation and development'
+      },
+      {
+        name: 'Fred Gitonga',
+        role: 'Partnerships Lead',
+        image: 'src/assets/images/Fred-base.webp',
+        bio: 'Building strategic alliances across Africa'
+      },
+      {
+        name: 'Ann Maina',
+        role: 'Product Designer',
+        image: 'src/assets/images/Ann-design.webp',
+        bio: 'Creating beautiful and functional Web3 experiences'
+      }
+    ]}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Get answers to common questions about our Web3 development services and how we can help your business."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'What Web3 services do you offer?',
+        description:
+          'We provide comprehensive Web3 development services including smart contract development, DeFi applications, NFT platforms, blockchain consulting, and security audits tailored for the African market.',
+      },
+      {
+        title: 'How long does a typical project take?',
+        description:
+          'Project timelines vary based on complexity. Simple smart contracts may take 2-4 weeks, while full DeFi platforms can take 3-6 months. We provide detailed timelines during our initial consultation.',
+      },
+      {
+        title: 'Do you work with startups or only established companies?',
+        description:
+          'We work with both startups and established companies. We offer flexible engagement models and can help with everything from MVP development to enterprise-scale blockchain solutions.',
+      },
+      {
+        title: 'What blockchain networks do you support?',
+        description:
+          'We support all major blockchain networks including Ethereum, Polygon, BSC, Solana, and emerging African-focused networks. We help you choose the best network for your specific use case.',
+      },
+      {
+        title: 'Do you provide ongoing support after project completion?',
+        description:
+          'Yes, we offer comprehensive post-launch support including maintenance, updates, monitoring, and technical assistance to ensure your Web3 solution continues to perform optimally.',
+      },
+      {
+        title: 'How do you ensure security in your smart contracts?',
+        description:
+          'Security is our top priority. We conduct thorough code reviews, implement best practices, perform extensive testing, and can arrange third-party audits for critical applications.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get in Touch',
+        href: '#contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Get in Touch
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Expansion in Kisumu and beyond. Partner, sponsor, mentor our community.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900"></div>
+      <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
+    </Fragment>
+  </CallToAction>
+</Layout>
