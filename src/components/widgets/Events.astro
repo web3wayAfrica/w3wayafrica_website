@@ -1,0 +1,92 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  events?: Array<{
+    title: string;
+    description: string;
+    image: string;
+    date?: string;
+    location?: string;
+  }>;
+  id?: string;
+}
+
+const {
+  title = 'Our Recent Activities',
+  subtitle = 'We\'ve been laying the groundwork to empower local builders and spark fresh ideas, guided by our belief in Africa\'s rising tech momentum.',
+  tagline = 'Events',
+  events = [],
+  id,
+} = Astro.props;
+
+// Duplicate events for seamless carousel
+const duplicatedEvents = [...events, ...events];
+---
+
+<section class="py-16 md:py-20" {...id ? { id } : {}}>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center pb-10 md:pb-16">
+      {tagline && (
+        <p class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase">
+          {tagline}
+        </p>
+      )}
+      {title && (
+        <h2 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200">
+          {title}
+        </h2>
+      )}
+      {subtitle && (
+        <p class="text-xl text-muted mb-6 dark:text-slate-300 max-w-3xl mx-auto">
+          {subtitle}
+        </p>
+      )}
+    </div>
+    
+    <!-- Carousel Container -->
+    <div class="relative overflow-hidden">
+      <!-- Carousel Track -->
+      <div class="flex animate-scroll space-x-8 py-4">
+        {duplicatedEvents.map(({ title: eventTitle, description, image, date, location }, index) => (
+          <div class="flex-shrink-0 w-80 bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 hover:scale-105 group">
+            <div class="relative">
+              <img
+                src={image}
+                alt={eventTitle}
+                class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              {date && (
+                <div class="absolute top-4 left-4 bg-gradient-to-r from-primary to-accent text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
+                  {date}
+                </div>
+              )}
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors duration-300">
+                {eventTitle}
+              </h3>
+              {location && (
+                <p class="text-sm text-muted dark:text-slate-400 mb-3 flex items-center">
+                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                  </svg>
+                  {location}
+                </p>
+              )}
+              <p class="text-gray-600 dark:text-slate-300 leading-relaxed">
+                {description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <!-- Gradient Overlays for smooth edges -->
+      <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white dark:from-slate-900 to-transparent z-10"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white dark:from-slate-900 to-transparent z-10"></div>
+    </div>
+  </div>
+</section>

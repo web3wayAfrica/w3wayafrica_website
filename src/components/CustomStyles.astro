@@ -1,0 +1,90 @@
+---
+import '@fontsource-variable/inter';
+
+// 'DM Sans'
+// Nunito
+// Dosis
+// Outfit
+// Roboto
+// Literata
+// 'IBM Plex Sans'
+// Karla
+// Poppins
+// 'Fira Sans'
+// 'Libre Franklin'
+// Inconsolata
+// Raleway
+// Oswald
+// 'Space Grotesk'
+// Urbanist
+---
+
+<style is:inline>
+  :root {
+    --aw-font-sans: 'Inter Variable';
+    --aw-font-serif: 'Inter Variable';
+    --aw-font-heading: 'Inter Variable';
+
+    --aw-color-primary: rgb(59 130 246); /* Blue-500 */
+    --aw-color-secondary: rgb(37 99 235); /* Blue-600 */
+    --aw-color-accent: rgb(16 185 129); /* Emerald-500 */
+
+    --aw-color-text-heading: rgb(15 23 42); /* Slate-900 */
+    --aw-color-text-default: rgb(30 41 59); /* Slate-800 */
+    --aw-color-text-muted: rgb(71 85 105); /* Slate-600 */
+    --aw-color-bg-page: rgb(248 250 252); /* Slate-50 */
+
+    --aw-color-bg-page-dark: rgb(2 6 23); /* Slate-950 */
+
+    ::selection {
+      background-color: rgb(59 130 246 / 20%);
+    }
+  }
+
+  .dark {
+    --aw-font-sans: 'Inter Variable';
+    --aw-font-serif: 'Inter Variable';
+    --aw-font-heading: 'Inter Variable';
+
+    --aw-color-primary: rgb(96 165 250); /* Blue-400 */
+    --aw-color-secondary: rgb(59 130 246); /* Blue-500 */
+    --aw-color-accent: rgb(52 211 153); /* Emerald-400 */
+
+    --aw-color-text-heading: rgb(248 250 252); /* Slate-50 */
+    --aw-color-text-default: rgb(226 232 240); /* Slate-200 */
+    --aw-color-text-muted: rgb(148 163 184); /* Slate-400 */
+    --aw-color-bg-page: rgb(2 6 23); /* Slate-950 */
+
+    ::selection {
+      background-color: rgb(96 165 250 / 20%);
+      color: rgb(248 250 252);
+    }
+  }
+
+  /* Custom Carousel Animation */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+
+  /* Smooth gradient fade for carousel edges */
+  .carousel-gradient-left {
+    background: linear-gradient(to right, var(--aw-color-bg-page) 0%, transparent 100%);
+  }
+
+  .carousel-gradient-right {
+    background: linear-gradient(to left, var(--aw-color-bg-page) 0%, transparent 100%);
+  }
+</style>

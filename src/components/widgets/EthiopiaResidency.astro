@@ -1,0 +1,136 @@
+---
+import EthiopiaSummary from '~/assets/images/Ethiopia_summary.mp4';
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  imageSrc?: string;
+  videoSrc?: string;
+  date?: string;
+  location?: string;
+  highlights?: string[];
+  id?: string;
+}
+
+const {
+  title = 'ETHiopia Residency and Popup City',
+  subtitle = 'Cultural and Technical Exchange Program',
+  description = 'A groundbreaking cultural and technical exchange program bringing together Web3 developers from Ethiopia and Kenya for collaborative learning and innovation. This residency program fostered cross-border collaboration and knowledge sharing in the African Web3 ecosystem.',
+  videoSrc = EthiopiaSummary,
+  date = '2025',
+  location = 'Addis Ababa, Ethiopia',
+  highlights = [
+    'Cross-border collaboration between Ethiopia and Kenya',
+    'Technical knowledge exchange and skill sharing',
+    'Cultural immersion and community building',
+    'Innovation workshops and hackathons',
+    'Long-term partnership development'
+  ],
+  id,
+} = Astro.props;
+---
+
+<section class="py-16 md:py-20" {...id ? { id } : {}}>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center pb-10 md:pb-16">
+      <div class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-emerald-100 dark:from-blue-900 dark:to-emerald-900 mb-4">
+        <span class="text-sm font-semibold text-blue-800 dark:text-blue-200">🌍 International Program</span>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200">
+        {title}
+      </h2>
+      <p class="text-xl text-muted mb-6 dark:text-slate-300 max-w-3xl mx-auto">
+        {subtitle}
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Media Section -->
+      <div class="order-2 lg:order-1">
+        <div class="relative rounded-lg overflow-hidden shadow-2xl group">
+          {videoSrc ? (
+            <video
+              class="w-full h-auto group-hover:scale-105 transition-transform duration-500"
+              controls
+              
+            >
+              <source src={videoSrc} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            <div class="relative">
+              <img
+                src={imageSrc}
+                alt={title}
+                class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-center justify-center">
+                <div class="text-center text-white">
+                  <div class="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M8 5v10l8-5-8-5z"/>
+                    </svg>
+                  </div>
+                  <p class="text-sm font-medium">Program Highlights</p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+      
+      <!-- Content Section -->
+      <div class="order-1 lg:order-2">
+        <div class="space-y-6">
+          <div class="flex items-center space-x-4 text-sm text-muted dark:text-slate-400">
+            <span class="flex items-center px-3 py-1 bg-blue-100 dark:bg-blue-900 rounded-full">
+              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+              </svg>
+              {date}
+            </span>
+            <span class="flex items-center px-3 py-1 bg-emerald-100 dark:bg-emerald-900 rounded-full">
+              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+              </svg>
+              {location}
+            </span>
+          </div>
+          
+          <p class="text-lg text-gray-600 dark:text-slate-300 leading-relaxed">
+            {description}
+          </p>
+          
+          <div class="bg-gradient-to-r from-blue-50 to-emerald-50 dark:from-slate-800 dark:to-slate-700 p-6 rounded-lg border-l-4 border-blue-500">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+              <span class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center mr-3 text-sm font-bold">✨</span>
+              Program Highlights
+            </h3>
+            <ul class="space-y-3">
+              {highlights.map((highlight, index) => (
+                <li class="flex items-start">
+                  <div class="flex-shrink-0 w-6 h-6 bg-emerald-500 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">
+                    {index + 1}
+                  </div>
+                  <span class="text-sm text-gray-600 dark:text-slate-300">{highlight}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm">
+              <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">2</div>
+              <div class="text-sm text-gray-600 dark:text-slate-400">Countries</div>
+            </div>
+            <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm">
+              <div class="text-2xl font-bold text-emerald-600 dark:text-emerald-400">50+</div>
+              <div class="text-sm text-gray-600 dark:text-slate-400">Participants</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
