@@ -1,11 +1,14 @@
 ---
 import { SITE } from 'astrowind:config';
+import { getAsset } from '~/utils/permalinks';
 ---
 
 <div class="flex items-center">
-  <div class="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mr-3">
-    <span class="text-white font-bold text-lg">W3</span>
-  </div>
+  <img
+    src={getAsset('src/assets/images/Web3Wayafrica_logo.png')}
+    alt="Web3WayAfrica Logo"
+    class="h-8 w-auto mr-3"
+  />
   <span
     class="self-center text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
   >
