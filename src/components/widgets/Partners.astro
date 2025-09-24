@@ -41,42 +41,58 @@ const {
         </p>
       )}
     </div>
-    
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
-      {items.map(({ name, logo, href }) => (
-        <div class="flex flex-col items-center justify-center p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-          {href ? (
-            <>
-            <a href={href} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center">
-              <img
-  src={logo}
-  alt={name}
-  class={`h-32 w-32 mb-2 ${
-    name === "Stellar East Africa"
-      ? "object-cover rounded"
-      : "object-contain"
-  }`}
-/>
-            </a>
-            <span class="text-base font-semibold text-center mt-2">{name}</span>
-            </>
-          ) : (
-            <>
 
-            <img
-  src={logo}
-  alt={name}
-  class={`h-32 w-32 mb-2 ${
-    name === "Stellar East Africa"
-      ? "object-cover rounded"
-      : "object-contain"
-  }`}
-/>
-            <span class="text-base font-semibold text-center mt-2">{name}</span>
-            </>
-          )}
-        </div>
-      ))}
+    <div class="overflow-hidden w-full relative">
+      <div class="flex gap-8 animate-partners-scroll">
+        {items.concat(items).map(({ name, logo, href }, idx) => (
+          <div class="flex flex-col items-center justify-center min-w-[220px] p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm mx-2" key={idx}>
+            {href ? (
+              <>
+                <a href={href} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center">
+                  <img
+                    src={logo}
+                    alt={name}
+                    class={`h-32 w-32 mb-2 ${
+                      name === "Stellar East Africa"
+                        ? "object-cover rounded"
+                        : "object-contain"
+                    }`}
+                  />
+                </a>
+                <span class="text-base font-semibold text-center mt-2">{name}</span>
+              </>
+            ) : (
+              <>
+                <img
+                  src={logo}
+                  alt={name}
+                  class={`h-32 w-32 mb-2 ${
+                    name === "Stellar East Africa"
+                      ? "object-cover rounded"
+                      : "object-contain"
+                  }`}
+                />
+                <span class="text-base font-semibold text-center mt-2">{name}</span>
+              </>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+@keyframes partners-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.animate-partners-scroll {
+  animation: partners-scroll 30s linear infinite;
+  width: max-content;
+}
+</style>
