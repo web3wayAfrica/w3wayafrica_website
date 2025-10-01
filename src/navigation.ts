@@ -2,29 +2,19 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
   links: [
-    {
-      text: 'Pages',
-      links: [
         {
-          text: 'Features (Anchor Link)',
-          href: getPermalink('/#features'),
+          text: 'Home',
+          href: getPermalink('/'),
         },
         {
-          text: 'Services',
-          href: getPermalink('/services'),
-        },
-        {
-          text: 'About us',
+          text: 'About',
           href: getPermalink('/about'),
         },
         {
           text: 'Contact',
           href: getPermalink('/contact'),
         },
-      ],
-    },
   ],
-  actions: [{ text: 'Get Started', href: '#contact' }],
 };
 
 export const footerData = {
