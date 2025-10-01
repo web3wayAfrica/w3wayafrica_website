@@ -63,12 +63,12 @@ export const footerData = {
   ],
   secondaryLinks: [],
   socialLinks: [
-    { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: '#' },
+    { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/Web3WayAfrica' },
+    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/web3way-africa/posts/' },
     { ariaLabel: 'Discord', icon: 'tabler:brand-discord', href: '#' },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: '#' },
+    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/web3wayAfrica' },
   ],
   footNote: `
-    © 2024 Web3WayAfrica. All rights reserved.
+    © 2025 Web3WayAfrica. All rights reserved.
   `,
 };
