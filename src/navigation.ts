@@ -44,10 +44,10 @@ export const footerData = {
       title: 'Company',
       links: [
         { text: 'About Us', href: getPermalink('/about') },
-        { text: 'Our Team', href: '#' },
+        { text: 'Our Team', href: '#team' },
         { text: 'Careers', href: '#' },
         { text: 'Contact', href: getPermalink('/contact') },
-        { text: 'Partners', href: '#' },
+        { text: 'Partners', href: '#partners' },
       ],
     },
     {
