@@ -1,12 +1,11 @@
 ---
-import EthiopiaSummary from 'public/videos/Ethiopia_summary.mp4'
 
 export interface Props {
   title?: string;
   subtitle?: string;
   description?: string;
   imageSrc?: string;
-  videoSrc?: string;
+  youtubeId?: string; 
   date?: string;
   location?: string;
   highlights?: string[];
@@ -17,7 +16,7 @@ const {
   title = 'ETHiopia Residency and Popup City',
   subtitle = 'Cultural and Technical Exchange Program',
   description = 'A groundbreaking cultural and technical exchange program bringing together Web3 developers from Ethiopia and Kenya for collaborative learning and innovation. This residency program fostered cross-border collaboration and knowledge sharing in the African Web3 ecosystem.',
-  videoSrc = EthiopiaSummary,
+  youtubeId = 'ip7-BphzlE8',
   date = '2025',
   location = 'Addis Ababa, Ethiopia',
   highlights = [
@@ -49,15 +48,17 @@ const {
       <!-- Media Section -->
       <div class="order-2 lg:order-1">
         <div class="relative rounded-lg overflow-hidden shadow-2xl group">
-          {videoSrc ? (
-            <video
-              class="w-full h-auto group-hover:scale-105 transition-transform duration-500"
-              controls
-              
-            >
-              <source src={videoSrc} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+          {youtubeId ? (
+            <div class="relative w-full" style="padding-bottom: 56.25%;">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full"
+                src={`https://www.youtube.com/embed/${youtubeId}`}
+                title={title}
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
           ) : (
             <div class="relative">
               <img
