@@ -7,7 +7,7 @@ export interface Props {
   tagline?: string;
   items?: Array<{
     name: string;
-    logo: string;
+    logo: any; // Changed to accept both string and ImageMetadata
     href?: string;
   }>;
   id?: string;
@@ -50,7 +50,7 @@ const {
               <>
                 <a href={href} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center">
                   <img
-                    src={logo}
+                    src={typeof logo === 'string' ? logo : logo.src}
                     alt={name}
                     class={`h-32 w-32 mb-2 ${
                       name === "Stellar East Africa"
@@ -64,7 +64,7 @@ const {
             ) : (
               <>
                 <img
-                  src={logo}
+                  src={typeof logo === 'string' ? logo : logo.src}
                   alt={name}
                   class={`h-32 w-32 mb-2 ${
                     name === "Stellar East Africa"
