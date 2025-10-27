@@ -1,23 +1,31 @@
 ---
-import GlobalPizzaPartyVideo from '~/assets/images/Global_Pizza_Party_2025.mp4';
 
 export interface Props {
   title?: string;
   subtitle?: string;
   description?: string;
-  videoSrc?: string;
+  youtubeId?: string;
+  imageSrc?: string;
   date?: string;
   location?: string;
+  highlights?: string[];
   id?: string;
 }
 
 const {
   title = 'Global Pizza Party 2025',
-  subtitle = 'Held the first ever Pizza Party event in Kisumu',
-  description = 'Bringing together the local Web3 community for networking and collaboration in a fun, engaging environment.',
-  videoSrc = GlobalPizzaPartyVideo,
+  subtitle = 'Building Web3 Communities Through Connection',
+  description = 'The first-ever Pizza Party event in Kisumu, bringing together the local Web3 community for networking, collaboration, and learning in a fun, engaging environment. This event marked a significant milestone in growing the regional blockchain ecosystem.',
+  youtubeId = 'XQE_Wml9pf0', 
   date = '2025',
   location = 'Kisumu, Kenya',
+  highlights = [
+    'First-ever Pizza Party event in Kisumu',
+    'Community networking and collaboration',
+    'Fun and engaging Web3 learning environment',
+    'Local ecosystem building and growth',
+    'Knowledge sharing and skill development'
+  ],
   id,
 } = Astro.props;
 ---
@@ -25,6 +33,9 @@ const {
 <section class="py-16 md:py-20" {...id ? { id } : {}}>
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <div class="text-center pb-10 md:pb-16">
+      <div class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-orange-100 to-yellow-100 dark:from-orange-900 dark:to-yellow-900 mb-4">
+        <span class="text-sm font-semibold text-orange-800 dark:text-orange-200">🍕 Community Event</span>
+      </div>
       <h2 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200">
         {title}
       </h2>
@@ -34,16 +45,39 @@ const {
     </div>
     
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <!-- Video Section -->
+      <!-- Media Section -->
       <div class="order-2 lg:order-1">
-        <div class="relative rounded-lg overflow-hidden shadow-2xl">
-          <video
-            class="w-full h-auto"
-            controls
-          >
-            <source src={videoSrc} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+        <div class="relative rounded-lg overflow-hidden shadow-2xl group">
+          {youtubeId ? (
+            <div class="relative w-full" style="padding-bottom: 56.25%;">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full"
+                src={`https://www.youtube.com/embed/${youtubeId}`}
+                title={title}
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          ) : (
+            <div class="relative">
+              <img
+                src={imageSrc}
+                alt={title}
+                class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-center justify-center">
+                <div class="text-center text-white">
+                  <div class="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M8 5v10l8-5-8-5z"/>
+                    </svg>
+                  </div>
+                  <p class="text-sm font-medium">Event Highlights</p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       
@@ -51,13 +85,13 @@ const {
       <div class="order-1 lg:order-2">
         <div class="space-y-6">
           <div class="flex items-center space-x-4 text-sm text-muted dark:text-slate-400">
-            <span class="flex items-center">
+            <span class="flex items-center px-3 py-1 bg-orange-100 dark:bg-orange-900 rounded-full">
               <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
               </svg>
               {date}
             </span>
-            <span class="flex items-center">
+            <span class="flex items-center px-3 py-1 bg-yellow-100 dark:bg-yellow-900 rounded-full">
               <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
               </svg>
@@ -69,30 +103,32 @@ const {
             {description}
           </p>
           
-          <div class="bg-gradient-to-r from-blue-50 to-emerald-50 dark:from-slate-800 dark:to-slate-700 p-6 rounded-lg">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              What Made This Event Special?
+          <div class="bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-slate-800 dark:to-slate-700 p-6 rounded-lg border-l-4 border-orange-500">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+              <span class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center mr-3 text-sm font-bold">🎉</span>
+              Event Highlights
             </h3>
-            <ul class="space-y-2 text-sm text-gray-600 dark:text-slate-300">
-              <li class="flex items-center">
-                <svg class="w-4 h-4 mr-2 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                First-ever Pizza Party event in Kisumu
-              </li>
-              <li class="flex items-center">
-                <svg class="w-4 h-4 mr-2 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                Community networking and collaboration
-              </li>
-              <li class="flex items-center">
-                <svg class="w-4 h-4 mr-2 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                Fun and engaging Web3 learning environment
-              </li>
+            <ul class="space-y-3">
+              {highlights.map((highlight, index) => (
+                <li class="flex items-start">
+                  <div class="flex-shrink-0 w-6 h-6 bg-yellow-500 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">
+                    {index + 1}
+                  </div>
+                  <span class="text-sm text-gray-600 dark:text-slate-300">{highlight}</span>
+                </li>
+              ))}
             </ul>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm">
+              <div class="text-2xl font-bold text-orange-600 dark:text-orange-400">1st</div>
+              <div class="text-sm text-gray-600 dark:text-slate-400">In Kisumu</div>
+            </div>
+            <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm">
+              <div class="text-2xl font-bold text-yellow-600 dark:text-yellow-400">30+</div>
+              <div class="text-sm text-gray-600 dark:text-slate-400">Attendees</div>
+            </div>
           </div>
         </div>
       </div>
