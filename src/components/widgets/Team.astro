@@ -6,7 +6,7 @@ export interface Props {
   members?: Array<{
     name: string;
     role: string;
-    image: string;
+    image: any; // Changed to accept both string and ImageMetadata
     bio?: string;
   }>;
   id?: string;
@@ -46,7 +46,7 @@ const {
         <div class="text-center group">
           <div class="relative mb-4">
             <img
-              src={image}
+              src={typeof image === 'string' ? image : image.src}
               alt={name}
               class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white dark:border-slate-700 shadow-lg group-hover:scale-105 transition-transform duration-300"
             />
