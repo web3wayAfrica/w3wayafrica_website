@@ -11,9 +11,22 @@ import EthiopiaResidency from '~/components/widgets/EthiopiaResidency.astro';
 import Team from '~/components/widgets/Team.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import HomepageImage from '~/assets/images/Homepage.webp';
-import GlobalPizzaPartyVideo from '~/assets/images/Global_Pizza_Party_2025.mp4';
 
+// Import images properly for build
+import GlobalPizzaPartyVideo from '~/assets/images/Global_Pizza_Party_2025.mp4';
+import Homepage from '~/assets/images/Homepage.webp';
+import BaseChainImage from '~/assets/images/Base-chain.jpeg';
+import StellarChainImage from '~/assets/images/Stellar-chain.jpeg';
+import PostDevconImage from '~/assets/images/Post-devcon.webp';
+import EthereumLogo from '~/assets/images/ethereum.webp';
+import BaseLogo from '~/assets/images/base.jpeg';
+import PizzaDaoLogo from '~/assets/images/pizza-dao.webp';
+import StellarEastAfricaLogo from '~/assets/images/Stellar_Eeast_Africa.png';
+import AllanImage from '~/assets/images/Allan-imara.webp';
+import IjayImage from '~/assets/images/Ijay-lisk.jpeg';
+import CherylImage from '~/assets/images/cheryl-polkadot.webp';
+import FredImage from '~/assets/images/Fred-base.webp';
+import AnnImage from '~/assets/images/Ann-design.webp';
 
 const metadata = {
   title: 'Web3WayAfrica — Empowering African Web3 Developers',
@@ -34,7 +47,7 @@ const metadata = {
       },
       { text: 'Learn More', href: '#about' },
     ]}
-    image={{ src: HomepageImage, alt: 'Web3WayAfrica Community' }}
+    image={{ src: Homepage, alt: 'Web3WayAfrica Community' }}
   >
     <Fragment slot="title">
       <span class="text-accent dark:text-emerald-400">Web3way Africa</span><br />
@@ -90,26 +103,26 @@ const metadata = {
     title="Our Previous Partners"
     subtitle="We work with leading organizations in the Web3 space to build a stronger ecosystem"
     tagline="Partners"
-    id = "partners"
+    id="partners"
     items={[
       {
         name: 'Ethereum',
-        logo: 'src/assets/images/ethereum.webp',
+        logo: EthereumLogo,
         href: 'https://ethereum.org'
       },
       {
         name: 'Base East Africa',
-        logo: 'src/assets/images/base.jpeg',
+        logo: BaseLogo,
         href: 'https://base.org'
       },
       {
         name: 'Pizza DAO',
-        logo: 'src/assets/images/pizza-dao.webp',
+        logo: PizzaDaoLogo,
         href: 'https://pizza-dao.com'
       },
       {
         name: 'Stellar East Africa',
-        logo: 'src/assets/images/Stellar_Eeast_Africa.png',
+        logo: StellarEastAfricaLogo,
         href: 'https://stellar.org'
       }
     ]}
@@ -163,21 +176,21 @@ const metadata = {
       {
         title: 'Base Batches Meetup',
         description: 'Base Batch: Africa 001 - A comprehensive program bringing together developers and entrepreneurs to learn about Base blockchain technology.',
-        image: 'src/assets/images/Base-chain.jpeg',
+        image: BaseChainImage,
         date: '2025',
         location: 'Kisumu, Kenya'
       },
       {
         title: 'Stellar Kisumu Meetup',
         description: 'A community gathering focused on Stellar blockchain technology, bringing together developers and enthusiasts to explore cross-border payments and financial inclusion solutions.',
-        image: 'src/assets/images/Stellar-chain.jpeg',
+        image: StellarChainImage,
         date: '2025',
         location: 'Kisumu, Kenya'
       },
       {
         title: 'Post Devcon Event',
         description: 'Highlighted the key concepts at Devcon 2024 and shared insights with the local community about the latest developments in the Ethereum ecosystem.',
-        image: 'src/assets/images/Post-devcon.webp',
+        image: PostDevconImage,
         date: '2024',
         location: 'Kisumu, Kenya'
       }
@@ -190,7 +203,7 @@ const metadata = {
     title="Global Pizza Party 2025"
     subtitle="Held the first ever Pizza Party event in Kisumu"
     description="Bringing together the local Web3 community for networking and collaboration in a fun, engaging environment. This groundbreaking event marked a new chapter in Kisumu's Web3 journey."
-    videoSrc={GlobalPizzaPartyVideo}
+    youtubeId="XQE_Wml9pf0"
     date="2025"
     location="Kisumu, Kenya"
   />
@@ -201,7 +214,7 @@ const metadata = {
     title="ETHiopia Residency and Popup City"
     subtitle="Cultural and Technical Exchange Program"
     description="A groundbreaking cultural and technical exchange program bringing together Web3 developers from Ethiopia and Kenya for collaborative learning and innovation. This residency program fostered cross-border collaboration and knowledge sharing in the African Web3 ecosystem."
-    imageSrc="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+    youtubeId="ip7-BphzlE8"
     date="2025"
     location="Addis Ababa, Ethiopia"
     highlights={[
@@ -219,36 +232,36 @@ const metadata = {
     title="Meet Our Team"
     subtitle="The passionate individuals driving Web3WayAfrica forward"
     tagline="Team"
-    id = "team"
+    id="team"
     members={[
       {
         name: 'Allan Kamau',
         role: 'Community Lead',
-        image: 'src/assets/images/Allan-imara.webp',
+        image: AllanImage,
         bio: 'Passionate about building inclusive Web3 communities'
       },
       {
         name: 'Ijay',
         role: 'Business Development Lead',
-        image: 'src/assets/images/Ijay-lisk.jpeg',
+        image: IjayImage,
         bio: 'Driving strategic partnerships and growth'
       },
       {
         name: 'Cheryl Owala',
         role: 'Technical Lead',
-        image: 'src/assets/images/cheryl-polkadot.webp',
+        image: CherylImage,
         bio: 'Leading technical innovation and development'
       },
       {
         name: 'Fred Gitonga',
         role: 'Partnerships Lead',
-        image: 'src/assets/images/Fred-base.webp',
+        image: FredImage,
         bio: 'Building strategic alliances across Africa'
       },
       {
         name: 'Ann Maina',
         role: 'Product Designer',
-        image: 'src/assets/images/Ann-design.webp',
+        image: AnnImage,
         bio: 'Creating beautiful and functional Web3 experiences'
       }
     ]}
